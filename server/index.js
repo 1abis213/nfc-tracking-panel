@@ -3,10 +3,12 @@ const cors = require('cors');
 const morgan = require('morgan');
 const { v4: uuidv4 } = require('uuid');
 const QRCode = require('qrcode');
-const db = require('./db');
+const { init, db } = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+let ready = init();
 
 app.use(cors());
 app.use(express.json());
@@ -181,6 +183,8 @@ app.get('/r/:id/:type', (req, res) => {
 
 // ─── Start ──────────────────────────────────────────────────
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`NFC Tracking Panel running at http://localhost:${PORT}`);
+ready.then(() => {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`NFC Tracking Panel running at http://localhost:${PORT}`);
+  });
 });
