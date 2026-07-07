@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 let ready = init();
 
+app.set('trust proxy', true);
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
