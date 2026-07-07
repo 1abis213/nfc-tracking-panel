@@ -161,25 +161,11 @@ app.get('/r/:id/:type', (req, res) => {
     return res.status(404).send('Tracking link not found or inactive');
   }
 
-  const stmt = db.prepare(
+  db.prepare(
     'INSERT INTO scans (plate_id, type, ip_address, user_agent, referer) VALUES (?, ?, ?, ?, ?)'
-  );
-  stmt.run(id, type, req.ip, req.get('User-Agent'), req.get('Referer'));
+  ).run(id, type, req.ip, req.get('User-Agent'), req.get('Referer'));
 
-  // Track pixel response (1x1 transparent GIF for QR-friendly tracking)
-  const acceptHeader = req.get('Accept') || '';
-  if (acceptHeader.includes('image/')) {
-    // Return 1x1 transparent GIF for image requests
-    const gif = Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64');
-    res.writeHead(200, {
-      'Content-Type': 'image/gif',
-      'Content-Length': gif.length,
-      'Cache-Control': 'no-cache, no-store, must-revalidate'
-    });
-    return res.end(gif);
-  }
-
-  res.redirect(301, plate.google_maps_url);
+  res.redirect(302, plate.google_maps_url);
 });
 
 // ─── Start ──────────────────────────────────────────────────
