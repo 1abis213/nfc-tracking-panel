@@ -1,0 +1,94 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  line-height: 1.5;
+}
+
+.app { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+header { margin-bottom: 24px; }
+header h1 { font-size: 1.6rem; color: #1a1a2e; }
+.subtitle { color: #666; font-size: 0.9rem; margin-top: 4px; }
+
+/* Stats Grid */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; margin-bottom: 24px; }
+.stat-card {
+  background: #fff; border-radius: 12px; padding: 20px; text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.stat-label { display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+.stat-value { display: block; font-size: 2rem; font-weight: 700; }
+.stat-card.qr .stat-value { color: #2563eb; }
+.stat-card.nfc .stat-value { color: #7c3aed; }
+
+/* Cards */
+.card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 24px; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.card-header h2 { font-size: 1.1rem; }
+.chart-card { flex: 1; min-width: 300px; }
+
+.row { display: flex; gap: 24px; flex-wrap: wrap; }
+
+/* Buttons */
+.btn {
+  padding: 8px 20px; border: 1px solid #ddd; border-radius: 8px;
+  background: #fff; cursor: pointer; font-size: 0.9rem; transition: .2s;
+}
+.btn-primary { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+.btn-primary:hover { background: #2d2d4e; }
+.btn-secondary { background: #f0f2f5; border-color: #ddd; }
+.btn-secondary:hover { background: #e0e2e5; }
+.btn-danger { background: #ef4444; color: #fff; border-color: #ef4444; }
+.btn-danger:hover { background: #dc2626; }
+
+/* Add Form */
+.add-form { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; padding: 16px; background: #f8f9fa; border-radius: 8px; }
+.add-form input { flex: 1; min-width: 200px; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; }
+.add-form input:focus { outline: none; border-color: #1a1a2e; }
+
+/* Table */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid #eee; }
+th { font-weight: 600; color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: .5px; }
+tr:hover { background: #f8f9fa; }
+td .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; }
+.badge-qr { background: #dbeafe; color: #2563eb; }
+.badge-nfc { background: #ede9fe; color: #7c3aed; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center; z-index: 100;
+}
+.modal {
+  background: #fff; border-radius: 16px; padding: 32px; width: 90%; max-width: 700px;
+  max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.2);
+}
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.modal-header h2 { font-size: 1.2rem; }
+.btn-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #888; }
+.btn-close:hover { color: #333; }
+.modal-body {}
+
+/* Detail Stats */
+.detail-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+.detail-stat { text-align: center; padding: 16px; background: #f8f9fa; border-radius: 8px; }
+.detail-stat .stat-value { font-size: 1.5rem; }
+
+/* Tracking URLs */
+.tracking-urls { margin-bottom: 24px; }
+.tracking-url { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding: 8px 12px; background: #f8f9fa; border-radius: 8px; font-family: monospace; font-size: 0.85rem; word-break: break-all; }
+.copy-btn { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 2px 8px; cursor: pointer; font-size: 0.8rem; white-space: nowrap; }
+.copy-btn:hover { background: #e0e2e5; }
+
+/* Recent Scans */
+.recent-scans { margin-top: 16px; }
+.recent-scans h3 { font-size: 0.95rem; margin-bottom: 8px; }
+.scan-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; color: #555; }
+
+/* Charts */
+canvas { max-height: 250px; }

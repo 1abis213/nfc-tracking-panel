@@ -1,0 +1,22 @@
+{
+  "name": "nfc-tracking-panel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "morgan": "^1.11.0",
+    "qrcode": "^1.5.4",
+    "uuid": "^14.0.1"
+  }
+}
